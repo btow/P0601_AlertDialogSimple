@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         showDialog(DIALOG_EXIT);
     }
 
+    public void onBackPressed() {
+        //dialog call
+        showDialog(DIALOG_EXIT);
+    }
+
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_EXIT) {
             AlertDialog.Builder adb = new AlertDialog.Builder(this);
@@ -62,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             adb.setNegativeButton(R.string.no, myClickListener);
             //button of neutral ansver
             adb.setNeutralButton(R.string.cancel, myClickListener);
+            //do not exit when pressing back button
+            adb.setCancelable(false);
             //create dialog
             return adb.create();
         }
